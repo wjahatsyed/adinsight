@@ -40,11 +40,92 @@ AdInsight is a mock advertising analytics platform designed to demonstrate scala
 ## 📁 Repository Structure
 
 adinsight/
-├── api-gateway/ # Gateway and routing
-├── campaign-service/ # Campaign CRUD microservice
-├── ingestion-service/ # Event ingestion via queue
-├── analytics-service/ # Analytics & reporting logic
-├── common-lib/ # Shared DTOs and utils
-├── frontend/ # (Optional) React.js dashboard
-├── docker-compose.yml # For local orchestration
+### Gateway and routing
+├── api-gateway/
+### Campaign CRUD microservice
+├── campaign-service/ 
+### Event ingestion via queue
+├── ingestion-service/ 
+### Analytics & reporting logic
+├── analytics-service/ 
+### Shared DTOs and utils
+├── common-lib/ 
+### (Optional) React.js dashboard
+├── frontend/ 
+### For local orchestration
+├── docker-compose.yml
+
 └── README.md
+
+
+---
+
+## 📊 Sample REST API
+
+**POST /campaigns**
+```json
+{
+  "name": "Eid Sale",
+  "budget": 500,
+  "startDate": "2025-10-10",
+  "endDate": "2025-10-20",
+  "keywords": ["discount", "sale", "eid"]
+}
+```
+
+**POST /events/click**
+
+```json
+
+{
+"campaignId": 123,
+"timestamp": "2025-10-11T12:00:00Z",
+"userId": "user-456"
+}
+```
+
+**GET /analytics/daily-report?campaignId=123**
+
+```json
+
+{
+"impressions": 800,
+"clicks": 120,
+"ctr": 15,
+"costPerClick": 0.42
+}
+```
+
+
+## 📈 Metrics Tracked
+Impressions & Clicks
+
+Click-Through Rate (CTR)
+
+Cost Per Click (CPC)
+
+Budget Utilization
+
+Optimization Suggestions
+
+## 📊 Sample Dashboards
+Campaign overview with CTR trends
+
+Budget burn-down charts
+
+Keyword performance reports
+
+🚀 How to Run Locally
+
+`` bash
+# Spin up services
+docker-compose up --build
+# Access services
+# Campaign API: http://localhost:8081
+# Analytics API: http://localhost:8082
+# RabbitMQ Dashboard: http://localhost:15672
+# Grafana: http://localhost:3000
+``
+# 📜 License
+MIT License
+
